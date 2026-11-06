@@ -3,146 +3,319 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#102b25">
-  <meta name="description" content="WILD FRONTIER - Explore um mundo aberto 3D cheio de mistérios.">
-  <title>WILD FRONTIER | Aventura em mundo aberto</title>
-  <link rel="stylesheet" href="game.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101321">
+  <title>CODELAB STUDIO — Crie sem limites</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Blockly -->
+  <script src="https://unpkg.com/blockly@11.2.2/blockly_compressed.js"></script>
+  <script src="https://unpkg.com/blockly@11.2.2/blocks_compressed.js"></script>
+  <script src="https://unpkg.com/blockly@11.2.2/javascript_compressed.js"></script>
+  <script src="https://unpkg.com/blockly@11.2.2/msg/pt-br.js"></script>
 </head>
+
 <body>
-  <main id="game-container"></main>
 
-  <div id="loading-screen">
-    <div class="loading-logo">WILD FRONTIER</div>
-    <div class="loading-subtitle">UM MUNDO ESPERA POR VOCÊ</div>
-    <div class="loading-track">
-      <div id="loading-progress"></div>
-    </div>
-    <div id="loading-message">Preparando o mundo...</div>
-  </div>
-
-  <div id="game-ui">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark">W</span>
-        <div>
-          <strong>WILD FRONTIER</strong>
-          <small>ARQUIPÉLAGO PERDIDO</small>
-        </div>
-      </div>
-
-      <div class="top-status">
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          EXPLORAÇÃO
-        </div>
-        <button id="save-button" class="icon-button" title="Salvar progresso">💾</button>
-        <button id="menu-button" class="icon-button" title="Menu">☰</button>
-      </div>
-    </header>
-
-    <section class="left-panel">
-      <div class="player-card">
-        <div class="player-avatar">🧭</div>
-        <div class="player-info">
-          <strong>Explorador</strong>
-          <span>Nível <b id="player-level">1</b></span>
-        </div>
-      </div>
-
-      <div class="xp-section">
-        <div class="xp-label">
-          <span>EXPERIÊNCIA</span>
-          <span id="xp-text">0 / 100</span>
-        </div>
-        <div class="xp-bar">
-          <div id="xp-fill"></div>
-        </div>
-      </div>
-
-      <div class="objective-card">
-        <div class="section-eyebrow">MISSÃO ATUAL</div>
-        <strong>Os cristais perdidos</strong>
-        <p>Explore a ilha e encontre os cristais de energia escondidos pela região.</p>
-        <div class="objective-progress">
-          <span>💎</span>
-          <strong id="crystal-count">0 / 5</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="right-panel">
-      <div class="resource-card">
-        <span>💎</span>
-        <div>
-          <small>CRISTAIS</small>
-          <strong id="crystal-total">0</strong>
-        </div>
-      </div>
-      <div class="resource-card">
-        <span>🪵</span>
-        <div>
-          <small>MADEIRA</small>
-          <strong id="wood-total">0</strong>
-        </div>
-      </div>
-      <div class="resource-card">
-        <span>🪨</span>
-        <div>
-          <small>PEDRA</small>
-          <strong id="stone-total">0</strong>
-        </div>
-      </div>
-    </section>
-
-    <div id="toast" class="toast"></div>
-
-    <div id="interaction-hint" class="interaction-hint">
-      Pressione E para coletar
-    </div>
-
-    <div id="desktop-controls" class="desktop-controls">
-      <span>W A S D</span> Mover
-      <span>SHIFT</span> Correr
-      <span>ESPAÇO</span> Pular
-      <span>E</span> Coletar
-      <span>MOUSE</span> Girar câmera
-    </div>
-
-    <div id="mobile-controls">
-      <div id="joystick-zone">
-        <div id="joystick-base">
-          <div id="joystick-stick"></div>
-        </div>
-      </div>
-
-      <div class="mobile-actions">
-        <button id="jump-button" class="action-button jump-button">↑</button>
-        <button id="run-button" class="action-button run-button">⚡</button>
-        <button id="action-button" class="action-button collect-button">✦</button>
-      </div>
-      <div class="mobile-camera-hint">Arraste a tela para girar a câmera</div>
-    </div>
-
-    <div id="menu-overlay" class="overlay hidden">
-      <div class="menu-card">
-        <div class="menu-logo">WILD FRONTIER</div>
-        <p>Seu mundo. Sua aventura.</p>
-        <button id="resume-button" class="primary-button">CONTINUAR EXPLORANDO</button>
-        <button id="save-menu-button" class="secondary-button">SALVAR PROGRESSO</button>
-        <button id="reset-button" class="danger-button">REINICIAR JOGO</button>
-        <small>Versão 1.0 • Protótipo explorável</small>
-      </div>
-    </div>
-  </div>
-
-  <div id="error-screen">
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-icon">C</div>
     <div>
-      <h2>Não foi possível iniciar o mundo</h2>
-      <p id="error-message">Verifique sua conexão e atualize a página.</p>
+      <strong>CODELAB <span>STUDIO</span></strong>
+      <small>Crie. Programe. Inove.</small>
     </div>
   </div>
 
-  <script type="module" src="game.js"></script>
+  <nav class="main-nav">
+    <button class="nav-btn active" data-page="editor">Editor</button>
+    <button class="nav-btn" data-page="learn">Aprender</button>
+    <button class="nav-btn" data-page="projects">Projetos</button>
+  </nav>
+
+  <div class="top-actions">
+    <input id="projectName" type="text" value="Meu primeiro projeto"
+      aria-label="Nome do projeto">
+    <button id="saveBtn">Salvar</button>
+    <button id="runBtn" class="primary-btn">▶ Executar</button>
+    <button id="stopBtn" class="danger-btn">■ Parar</button>
+  </div>
+</header>
+
+<main class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-heading">
+      <span>MEU AMBIENTE</span>
+    </div>
+
+    <button class="mode-btn active" id="mode2D">
+      <span>▦</span> Criar em 2D
+    </button>
+
+    <button class="mode-btn" id="mode3D">
+      <span>⬡</span> Criar em 3D
+    </button>
+
+    <div class="sidebar-divider"></div>
+
+    <h3>APRENDIZADO</h3>
+    <button class="side-link" data-page="learn">📚 Cursos e aulas</button>
+    <button class="side-link" data-page="challenges">🏆 Desafios</button>
+
+    <div class="sidebar-divider"></div>
+
+    <h3>PROJETOS</h3>
+    <button class="side-link" data-page="projects">📁 Meus projetos</button>
+    <button class="side-link" id="newProjectBtn">＋ Novo projeto</button>
+
+    <div class="sidebar-bottom">
+      <div class="status-indicator"></div>
+      <span>Ambiente pronto</span>
+    </div>
+  </aside>
+
+  <section class="workspace" id="editorPage">
+
+    <div class="workspace-heading">
+      <div>
+        <h2>Editor de programação</h2>
+        <p>Monte seus programas encaixando os blocos.</p>
+      </div>
+      <div class="workspace-tools">
+        <span id="currentMode">MODO 2D</span>
+        <button id="clearBtn">Limpar blocos</button>
+      </div>
+    </div>
+
+    <div class="editor-grid">
+
+      <section class="block-editor">
+        <div class="panel-heading">
+          <strong>Biblioteca de blocos</strong>
+          <span>ARRASTE PARA O EDITOR</span>
+        </div>
+
+        <div id="blocklyArea">
+          <div id="blocklyDiv"></div>
+        </div>
+      </section>
+
+      <section class="preview-section">
+
+        <div class="preview-panel">
+          <div class="panel-heading">
+            <strong>Visualização do projeto</strong>
+            <span id="previewStatus">AGUARDANDO</span>
+          </div>
+
+          <div class="preview-content">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            <div id="threeContainer" hidden></div>
+          </div>
+        </div>
+
+        <div class="explanation-panel">
+          <div class="panel-heading">
+            <strong>💡 Aprenda enquanto programa</strong>
+          </div>
+          <div id="blockExplanation">
+            <h3>Bem-vindo à CODELAB!</h3>
+            <p>
+              Selecione um bloco para entender o que ele faz,
+              como funciona e quando utilizá-lo.
+            </p>
+          </div>
+        </div>
+
+        <div class="console-panel">
+          <div class="panel-heading">
+            <strong>Console</strong>
+            <button id="clearConsoleBtn">Limpar</button>
+          </div>
+          <div id="consoleOutput">
+            <p>Sistema iniciado. Aguardando execução...</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </section>
+
+  <section class="workspace secondary-page" id="learnPage" hidden>
+    <h2>Aprenda programação</h2>
+    <p>Aprenda construindo seus próprios jogos e experiências.</p>
+    <div class="learning-cards">
+      <article class="learning-card">
+        <h3>🟢 Primeiros passos</h3>
+        <p>Conheça os blocos, eventos e movimentos.</p>
+      </article>
+      <article class="learning-card">
+        <h3>🎮 Jogos 2D</h3>
+        <p>Crie personagens, cenários e animações.</p>
+      </article>
+      <article class="learning-card">
+        <h3>🌎 Mundos 3D</h3>
+        <p>Explore objetos, câmeras e ambientes tridimensionais.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="workspace secondary-page" id="projectsPage" hidden>
+    <h2>Meus projetos</h2>
+    <p>Seus projetos salvos neste navegador aparecerão aqui.</p>
+    <div id="projectsList">
+      <p>Nenhum projeto salvo ainda.</p>
+    </div>
+  </section>
+
+  <section class="workspace secondary-page" id="challengesPage" hidden>
+    <h2>Desafios de programação</h2>
+    <div class="learning-cards">
+      <article class="learning-card">
+        <h3>🏃 Desafio 01 — Movimento</h3>
+        <p>Faça seu personagem andar pelo cenário.</p>
+      </article>
+      <article class="learning-card">
+        <h3>🧠 Desafio 02 — Lógica</h3>
+        <p>Use condições para controlar uma ação.</p>
+      </article>
+      <article class="learning-card">
+        <h3>🌌 Desafio 03 — 3D</h3>
+        <p>Crie um objeto e movimente-o pelo espaço.</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- BIBLIOTECA DE BLOCOS -->
+<xml id="toolbox" style="display:none">
+
+  <category name="🚀 Início" categorystyle="event_category">
+    <block type="codelab_start"></block>
+  </category>
+
+  <category name="🎮 Movimento 2D" categorystyle="motion_category">
+    <block type="codelab_move"></block>
+    <block type="codelab_turn"></block>
+    <block type="controls_repeat_ext"></block>
+    <block type="controls_for"></block>
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+  </category>
+
+  <category name="🌎 Movimento 3D" categorystyle="motion_category">
+    <block type="codelab_move"></block>
+    <block type="codelab_turn"></block>
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="math_trig"></block>
+    <block type="logic_compare"></block>
+  </category>
+
+  <category name="🎨 Aparência" categorystyle="looks_category">
+    <block type="codelab_say"></block>
+    <block type="codelab_background"></block>
+    <block type="text"></block>
+    <block type="text_join"></block>
+    <block type="colour_picker"></block>
+    <block type="colour_random"></block>
+  </category>
+
+  <category name="🎬 Animações" categorystyle="looks_category">
+    <block type="controls_repeat_ext"></block>
+    <block type="controls_if"></block>
+    <block type="math_number"></block>
+    <block type="text"></block>
+  </category>
+
+  <category name="🧲 Física" categorystyle="motion_category">
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="controls_if"></block>
+    <block type="controls_repeat_ext"></block>
+  </category>
+
+  <category name="⚡ Eventos" categorystyle="event_category">
+    <block type="codelab_start"></block>
+    <block type="logic_boolean"></block>
+    <block type="text"></block>
+  </category>
+
+  <category name="🧠 Lógica" categorystyle="logic_category">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean"></block>
+    <block type="logic_null"></block>
+    <block type="logic_ternary"></block>
+  </category>
+
+  <category name="🔁 Repetição" categorystyle="loop_category">
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_for"></block>
+    <block type="controls_forEach"></block>
+    <block type="controls_flow_statements"></block>
+  </category>
+
+  <category name="🔢 Matemática" categorystyle="math_category">
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="math_single"></block>
+    <block type="math_trig"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+  </category>
+
+  <category name="💬 Texto" categorystyle="text_category">
+    <block type="text"></block>
+    <block type="text_join"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_indexOf"></block>
+    <block type="text_charAt"></block>
+    <block type="text_getSubstring"></block>
+    <block type="text_changeCase"></block>
+    <block type="text_trim"></block>
+    <block type="text_print"></block>
+    <block type="text_prompt_ext"></block>
+  </category>
+
+  <category name="📦 Listas" categorystyle="list_category">
+    <block type="lists_create_with"></block>
+    <block type="lists_repeat"></block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf"></block>
+    <block type="lists_getIndex"></block>
+    <block type="lists_setIndex"></block>
+    <block type="lists_getSublist"></block>
+    <block type="lists_sort"></block>
+    <block type="lists_split"></block>
+  </category>
+
+  <category name="📊 Variáveis" custom="VARIABLE"></category>
+  <category name="🧩 Funções" custom="PROCEDURE"></category>
+
+</xml>
+
+<script type="module" src="app.js"></script>
+
 </body>
 </html>
