@@ -1,73 +1,379 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101019">
-  <title>PixelForge — Game Assets Marketplace</title>
+  <meta name="theme-color" content="#090914">
+
+  <title>PixelForge — Marketplace Digital</title>
+
+  <meta name="description" content="Descubra jogos, artes pixel art, assets, músicas e ferramentas digitais no PixelForge.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="header">
-  <a href="#" class="logo">PIXEL<span>FORGE</span></a>
+  <!-- FUNDO DECORATIVO -->
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
 
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#produtos">Explorar</a>
-    <a href="#categorias">Categorias</a>
-  </nav>
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-container">
 
-  <button class="cart" id="cartButton">
-    🛒 Carrinho <span id="cartCount">0</span>
-  </button>
-</header>
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">P</span>
+        <span>Pixel<span class="logo-highlight">Forge</span></span>
+      </a>
 
-<main>
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <span class="tag">THE CREATOR'S MARKETPLACE</span>
-      <h1>Crie jogos<br> <span>extraordinários.</span></h1>
-      <p>
-        Descubra personagens, cenários, animações
-        e recursos incríveis para seus próximos jogos.
-      </p>
-      <a href="#produtos" class="main-button">Explorar recursos →</a>
-    </div>
-    <div class="hero-art">⚔️</div>
-  </section>
+      <nav class="navigation">
+        <a href="#inicio">Início</a>
+        <a href="#explorar">Explorar</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#vender">Vender</a>
+      </nav>
 
-  <section class="categories" id="categorias">
-    <h2>Explore categorias</h2>
-    <div class="category-grid">
-      <button data-category="Personagens">🎮 Personagens</button>
-      <button data-category="Cenários">🌲 Cenários</button>
-      <button data-category="Animações">⚡ Animações</button>
-      <button data-category="Interfaces">🖥️ Interfaces</button>
-    </div>
-  </section>
+      <div class="header-actions">
+        <button class="cart-button" id="cartButton" aria-label="Abrir carrinho">
+          <span>🛒</span>
+          <span>Carrinho</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
 
-  <section class="products" id="produtos">
-    <div class="section-heading">
-      <div>
-        <span class="tag">MARKETPLACE</span>
-        <h2>Recursos em destaque</h2>
+        <a href="#conta" class="login-button">Minha conta</a>
       </div>
-      <input id="search" type="search"
-        placeholder="Pesquisar recursos...">
+
+      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Abrir menu">
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio">Início</a>
+    <a href="#explorar">Explorar</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#vender">Vender</a>
+    <a href="#conta">Minha conta</a>
+  </div>
+
+  <main>
+
+    <!-- DESTAQUE PRINCIPAL -->
+    <section class="hero" id="inicio">
+
+      <div class="hero-content">
+
+        <div class="hero-tag">
+          <span class="status-dot"></span>
+          UM UNIVERSO DE CRIAÇÃO DIGITAL
+        </div>
+
+        <h1>
+          Encontre recursos.
+          <span>Crie algo incrível.</span>
+        </h1>
+
+        <p>
+          Jogos, pixel art, animações, sons e ferramentas digitais.
+          Tudo em um só lugar para transformar suas ideias em realidade.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#explorar" class="primary-button">Explorar produtos →</a>
+          <a href="#vender" class="secondary-button">Quero vender</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>05</strong>
+            <span>Produtos iniciais</span>
+          </div>
+
+          <div>
+            <strong>05</strong>
+            <span>Categorias</span>
+          </div>
+
+          <div>
+            <strong>90%</strong>
+            <span>Para criadores</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-card visual-card-main">
+          <div class="visual-top">
+            <span class="visual-dot"></span>
+            <span class="visual-dot"></span>
+            <span class="visual-dot"></span>
+            <span class="visual-label">PIXELFORGE STORE</span>
+          </div>
+
+          <div class="pixel-art-preview">
+            <div class="pixel-sun"></div>
+            <div class="pixel-mountain mountain-one"></div>
+            <div class="pixel-mountain mountain-two"></div>
+            <div class="pixel-ground"></div>
+            <div class="pixel-character">✦</div>
+          </div>
+
+          <div class="visual-card-footer">
+            <div>
+              <strong>Creative Universe</strong>
+              <span>Digital resources</span>
+            </div>
+            <span class="visual-price">R$ 2,90</span>
+          </div>
+        </div>
+
+        <div class="floating-card floating-one">🎮 Jogos</div>
+        <div class="floating-card floating-two">🎨 Pixel Art</div>
+        <div class="floating-card floating-three">🎵 Áudio</div>
+      </div>
+
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="section categories-section" id="categorias">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-eyebrow">DESCUBRA</span>
+          <h2>Explore por categoria</h2>
+          <p>Encontre exatamente o recurso que você procura.</p>
+        </div>
+      </div>
+
+      <div class="category-grid">
+
+        <button class="category-card active" data-category="Todos">
+          <span class="category-icon">🌌</span>
+          <strong>Todos</strong>
+          <small>Ver tudo</small>
+        </button>
+
+        <button class="category-card" data-category="Jogos">
+          <span class="category-icon">🎮</span>
+          <strong>Jogos</strong>
+          <small>Projetos e jogos</small>
+        </button>
+
+        <button class="category-card" data-category="Artes e pixel art">
+          <span class="category-icon">🎨</span>
+          <strong>Artes e pixel art</strong>
+          <small>Sprites e ilustrações</small>
+        </button>
+
+        <button class="category-card" data-category="Assets e animações">
+          <span class="category-icon">🧩</span>
+          <strong>Assets e animações</strong>
+          <small>Recursos para jogos</small>
+        </button>
+
+        <button class="category-card" data-category="Músicas e efeitos sonoros">
+          <span class="category-icon">🎵</span>
+          <strong>Músicas e sons</strong>
+          <small>Áudio para projetos</small>
+        </button>
+
+        <button class="category-card" data-category="Templates e ferramentas">
+          <span class="category-icon">🛠️</span>
+          <strong>Templates e ferramentas</strong>
+          <small>Crie com facilidade</small>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="section products-section" id="explorar">
+
+      <div class="section-heading products-heading">
+        <div>
+          <span class="section-eyebrow">LOJA PIXELFORGE</span>
+          <h2>Produtos em destaque</h2>
+          <p>Uma seleção inicial de recursos digitais para criadores.</p>
+        </div>
+
+        <div class="product-search">
+          <span>⌕</span>
+          <input
+            type="search"
+            id="search"
+            placeholder="Pesquisar produtos..."
+            autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <div class="active-filter">
+        <span id="activeFilterLabel">Exibindo todos os produtos</span>
+        <button id="clearFilters">Limpar filtros</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Os cinco produtos são criados pelo JavaScript -->
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span>🔎</span>
+        <h3>Nenhum produto encontrado</h3>
+        <p>Tente pesquisar por outro nome ou categoria.</p>
+      </div>
+
+    </section>
+
+    <!-- ÁREA PARA VENDEDORES -->
+    <section class="seller-section" id="vender">
+
+      <div class="seller-content">
+        <span class="section-eyebrow">SEJA UM CRIADOR</span>
+
+        <h2>Seu talento também pode gerar renda.</h2>
+
+        <p>
+          Publique seus próprios jogos, artes, ferramentas e recursos digitais.
+          Você recebe 90% do valor de cada venda.
+        </p>
+
+        <a href="#conta" class="primary-button">Conhecer área do vendedor →</a>
+      </div>
+
+      <div class="commission-card">
+        <div class="commission-label">DIVISÃO DE CADA VENDA</div>
+
+        <div class="commission-number">90%</div>
+        <strong>Para você, criador</strong>
+
+        <div class="commission-divider"></div>
+
+        <div class="commission-platform">10% para PixelForge</div>
+
+        <small>
+          A taxa do processador de pagamento será descontada da parte da plataforma.
+          Os valores finais dependerão da integração de pagamentos.
+        </small>
+      </div>
+
+    </section>
+
+    <!-- ÁREA DA CONTA -->
+    <section class="section account-section" id="conta">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-eyebrow">CENTRAL DO USUÁRIO</span>
+          <h2>Sua área PixelForge</h2>
+          <p>Uma prévia das ferramentas que estarão disponíveis na plataforma.</p>
+        </div>
+      </div>
+
+      <div class="account-grid">
+
+        <div class="account-card">
+          <span>🛍️</span>
+          <h3>Minhas compras</h3>
+          <p>Consulte seus produtos adquiridos.</p>
+          <small>Em desenvolvimento</small>
+        </div>
+
+        <div class="account-card">
+          <span>📦</span>
+          <h3>Meus produtos</h3>
+          <p>Gerencie os produtos publicados.</p>
+          <small>Em desenvolvimento</small>
+        </div>
+
+        <div class="account-card">
+          <span>💰</span>
+          <h3>Meus ganhos</h3>
+          <p>Acompanhe suas vendas e receitas.</p>
+          <small>Em desenvolvimento</small>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+
+    <div class="footer-main">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">P</span>
+        <span>Pixel<span class="logo-highlight">Forge</span></span>
+      </a>
+
+      <p>Um universo de recursos para quem gosta de criar.</p>
     </div>
 
-    <div class="product-grid" id="productGrid"></div>
-  </section>
-</main>
+    <div class="footer-bottom">
+      <span>© 2026 PixelForge. Todos os direitos reservados.</span>
+      <span>Feito para criadores.</span>
+    </div>
 
-<footer>
-  <a href="#" class="logo">PIXEL<span>FORGE</span></a>
-  <p>Seu próximo jogo começa aqui.</p>
-  <small>© 2026 PixelForge. Todos os direitos reservados.</small>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
+  <!-- MODAL DO CARRINHO -->
+  <div class="modal-overlay" id="cartModal" aria-hidden="true">
+
+    <div class="cart-modal">
+
+      <div class="modal-header">
+        <div>
+          <span class="section-eyebrow">SEUS PRODUTOS</span>
+          <h2>Meu carrinho</h2>
+        </div>
+
+        <button class="close-modal" id="closeCart" aria-label="Fechar carrinho">
+          ×
+        </button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <!-- Itens adicionados aparecem aqui -->
+      </div>
+
+      <div class="cart-empty" id="cartEmpty">
+        <span>🛒</span>
+        <h3>Seu carrinho está vazio</h3>
+        <p>Explore os produtos e adicione seus favoritos.</p>
+      </div>
+
+      <div class="cart-summary">
+        <div>
+          <span>Total</span>
+          <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+
+        <button class="checkout-button" id="checkoutButton">
+          Continuar para pagamento
+        </button>
+
+        <small>
+          Esta versão é demonstrativa. O pagamento ainda não está integrado.
+        </small>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
+
